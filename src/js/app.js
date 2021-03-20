@@ -7,24 +7,16 @@ import { removeInputError, showInputError } from './views/form';
 import { login } from './services/auth.service';
 import { signIn } from './services/signIn';
 import { notify } from './views/notification';
-import {getNews} from "./services/news.service";
+import { getNews } from './services/news.service';
 
-const { form, inputEmail, inputPassword, btn } = UI;
+const {
+  form, inputEmail, inputPassword, btn,
+} = UI;
 const inputs = [inputEmail, inputPassword];
-
-// Events
-form.addEventListener('submit', e => {
-  e.preventDefault();
-  onSubmit();
-});
-inputs.forEach(el => el.addEventListener('focus', () => removeInputError(el)));
-btn.addEventListener('click', () => {
-  onSignIn();
-});
 
 // Handlers
 async function onSubmit() {
-  const isValidForm = inputs.every(el => {
+  const isValidForm = inputs.every((el) => {
     const isValidInput = validata(el);
     if (!isValidInput) {
       showInputError(el);
@@ -68,3 +60,13 @@ async function onSignIn() {
     // show error notify
   }
 }
+
+// Events
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  onSubmit();
+});
+inputs.forEach((el) => el.addEventListener('focus', () => removeInputError(el)));
+btn.addEventListener('click', () => {
+  onSignIn();
+});

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 function getContainer() {
   return document.querySelector('.notify-container');
 }
@@ -22,7 +23,7 @@ function createNotifyContainer() {
 }
 
 function getAlertIndex() {
-    return document.querySelectorAll('.notify-container .alert').length;
+  return document.querySelectorAll('.notify-container .alert').length;
 }
 
 /**
@@ -66,5 +67,4 @@ export function closeNotify(index) {
   }
   const container = getContainer();
   container.removeChild(alert);
-
 }

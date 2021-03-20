@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const lsTokenKey = 'my-app-token';
 
 function setToken(req) {
@@ -15,7 +16,7 @@ function setTokenOnLogin(res) {
   const isLoginUrl = res.config.url.includes('login');
 
   if (isLoginUrl) {
-    const token = res.data.token;
+    const { token } = res.data;
     localStorage.setItem(lsTokenKey, token);
   }
 
@@ -27,8 +28,8 @@ function getClearResponse(res) {
 }
 
 function onError(err) {
-    console.dir(err)
-    return Promise.reject(err);
+  console.dir(err);
+  return Promise.reject(err);
 }
 
 export default function (axios) {

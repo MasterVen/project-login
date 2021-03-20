@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import axios from '../plugins/axios';
 
 /**
@@ -7,20 +8,20 @@ import axios from '../plugins/axios';
  *
  */
 export async function login(email, password) {
-    try {
-        const response = await axios.post(
-            `/auth/login`,
-            JSON.stringify({email, password}),
-            {
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            },
-        );
-        console.log(response);
-        return response.data;
-    } catch (err) {
-        console.log(err);
-        return Promise.reject(err);
-    }
+  try {
+    const response = await axios.post(
+      '/auth/login',
+      JSON.stringify({ email, password }),
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      },
+    );
+    console.log(response);
+    return response.data;
+  } catch (err) {
+    console.log(err);
+    return Promise.reject(err);
+  }
 }

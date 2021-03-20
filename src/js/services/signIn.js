@@ -1,5 +1,6 @@
+/* eslint-disable no-console */
 import axios from 'axios';
-import API_ENV from "../config/api.config";
+import API_ENV from '../config/api.config';
 
 /**
  * Function login. Make login request to API
@@ -7,20 +8,20 @@ import API_ENV from "../config/api.config";
  *
  */
 export async function signIn(param = {}) {
-    try {
-        const response = await axios.post(
-            `${API_ENV.apiUrl}/auth/signup`,
-            JSON.stringify(param),
-            {
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            },
-        );
-        console.log(response);
-        return response.data;
-    } catch (err) {
-        console.log(err);
-        return Promise.reject(err);
-    }
+  try {
+    const response = await axios.post(
+      `${API_ENV.apiUrl}/auth/signup`,
+      JSON.stringify(param),
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      },
+    );
+    console.log(response);
+    return response.data;
+  } catch (err) {
+    console.log(err) ;
+    return Promise.reject(err);
+  }
 }
